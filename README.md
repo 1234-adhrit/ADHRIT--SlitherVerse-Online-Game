@@ -47,3 +47,7 @@ Multiplayer slither-style game with real-time rooms, lobby, chat, and solo mode.
 - If the page is blank, confirm the server is running and visit `http://localhost:3000/`.
 - If PowerShell blocks npm scripts, run with `cmd /c`:
   - `cmd /c "cd /d C:\Users\Administrator\OneDrive\Documents\CodeX[27] && npm start"`
+ 
+## Play Online
+
+- https://adhrit-slitherverse-online-game.onrender.com

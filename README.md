@@ -7,6 +7,7 @@ Multiplayer slither-style game with real-time rooms, lobby, chat, and solo mode.
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
 4. Open `http://localhost:3000/` in your browser.
+5. Set your browser size to: `67%` to have better experience.
 
 **How To Play**
 - Enter your player name.

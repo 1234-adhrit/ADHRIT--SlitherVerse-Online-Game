@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SlitherVerse Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Sora:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <div id="ui">
+      <div id="overlay" class="overlay">
+        <div id="menu" class="panel">
+          <div class="brand">
+            <div class="brand-title">SlitherVerse</div>
+            <div class="brand-subtitle">Multiplayer cosmic serpents</div>
+          </div>
+        <div class="input-row">
+          <label for="nameInput">Player Name</label>
+          <input id="nameInput" type="text" maxlength="16" placeholder="Enter name" />
+        </div>
+        <div class="input-row">
+          <label>Choose Skin</label>
+          <div id="skinRow" class="skin-row"></div>
+        </div>
+        <div class="menu-actions">
+          <button id="soloBtn" class="primary">Play Solo</button>
+        </div>
+        <div class="input-row">
+          <label for="botDifficulty">Solo Bot Difficulty</label>
+          <input id="botDifficulty" type="range" min="1" max="3" value="2" />
+          <div id="botDifficultyLabel" class="difficulty-label">Normal</div>
+        </div>
+          <div class="menu-grid">
+            <div class="card">
+              <h3>Create Server</h3>
+              <div class="input-row">
+                <label for="serverNameInput">Server Name</label>
+                <input id="serverNameInput" type="text" maxlength="24" placeholder="Nebula Run" />
+              </div>
+              <div class="input-row">
+                <label for="maxPlayersInput">Max Players (2-20)</label>
+                <input id="maxPlayersInput" type="number" min="2" max="20" value="10" />
+              </div>
+              <button id="createBtn">Create</button>
+            </div>
+            <div class="card">
+              <h3>Join Server</h3>
+              <div class="input-row">
+                <label for="joinCodeInput">Server Code</label>
+                <input id="joinCodeInput" type="text" maxlength="6" placeholder="ABCDE" />
+              </div>
+              <button id="joinBtn">Join</button>
+            </div>
+          </div>
+          <div class="server-board">
+            <div class="board-header">
+              <h3>Available Servers</h3>
+              <button id="refreshBtn" class="ghost">Refresh</button>
+            </div>
+            <div id="serverList" class="server-list"></div>
+          </div>
+        </div>
+
+        <div id="lobby" class="panel hidden">
+          <div class="lobby-header">
+            <div>
+              <div class="label">Server Code</div>
+              <div id="lobbyCode" class="lobby-code">-----</div>
+            </div>
+            <div class="lobby-status">
+              <div id="lobbyStatus" class="status-pill">Waiting</div>
+              <div id="lobbyTimer" class="timer">60s</div>
+            </div>
+          </div>
+        <div class="lobby-body">
+          <div>
+            <div class="label">Players</div>
+            <div id="playerList" class="player-list"></div>
+          </div>
+          <div id="lobbyHint" class="lobby-hint">Waiting for players...</div>
+        </div>
+        <button id="leaveBtn" class="ghost">Leave</button>
+      </div>
+
+        <div id="hud" class="hud hidden">
+          <div class="net-status">
+            Ping: <span id="pingValue">--</span> ms
+          </div>
+          <div class="score-panel">
+            <div class="label">Top Serpents</div>
+            <div class="energy-bar">
+              <div id="energyFill" class="energy-fill"></div>
+              <span id="energyText">BOOST 100%</span>
+            </div>
+            <div id="scoreboard" class="scoreboard"></div>
+          </div>
+          <div class="minimap-panel">
+            <div class="label">Map</div>
+            <canvas id="minimap" width="160" height="160"></canvas>
+          </div>
+          <div class="chat-panel">
+            <div class="label">Chat</div>
+            <div id="chatMessages" class="chat-messages"></div>
+          <div class="chat-input">
+              <input id="chatInput" type="text" maxlength="200" placeholder="Say hello..." />
+              <button id="chatSend" class="primary">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
